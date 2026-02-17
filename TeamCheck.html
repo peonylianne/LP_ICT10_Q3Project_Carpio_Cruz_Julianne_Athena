@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intramurals Registration</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+            margin: 0;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            z-index: 1000;
+        }
+
+        .nav-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #334155;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            width: 430px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 6px solid #3b82f6;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .question {
+            text-align: left;
+            margin: 18px 0;
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .question p {
+            margin: 0 0 6px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        label {
+            display: block;
+            margin: 4px 0;
+            cursor: pointer;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        select {
+            border: 1px solid #cbd5e1;
+        }
+
+        button {
+            border: none;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(to right, #ef4444, #f59e0b, #22c55e, #3b82f6);
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            background: #f1f5f9;
+            min-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-title">Intramurals SY 2025-2026</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Sign Up Page</a></li>
+        <li><a href="TeamCheck.html">Team Checker</a></li>
+        <li><a href="listofplayers.html">List of Players</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+<div class="card">
+    <h1>Intramurals<br>Registration</h1>
+
+    <div class="question">
+        <p>Are you done with online registration?</p>
+        <label><input type="radio" name="reg" value="yes"> Yes</label>
+        <label><input type="radio" name="reg" value="no"> No</label>
+    </div>
+
+    <div class="question">
+        <p>Do you have the medical clearance from the clinic?</p>
+        <label><input type="radio" name="med" value="yes"> Yes</label>
+        <label><input type="radio" name="med" value="no"> No</label>
+    </div>
+
+    <div class="question">
+        <p>Grade:</p>
+        <select id="grade">
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+
+    <div class="question">
+        <p>Section:</p>
+        <select id="section">
+            <option value="Ruby">Ruby</option>
+            <option value="Topaz">Topaz</option>
+            <option value="Sapphire">Sapphire</option>
+            <option value="Emerald">Emerald</option>
+        </select>
+    </div>
+
+    <button id="signup">Sign Up</button>
+
+    <div class="result" id="output"></div>
+</div>
+</div>
+
+<py-script src="teamcheck.py"></py-script>
+
+</body>
+</html>
+
